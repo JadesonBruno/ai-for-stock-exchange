@@ -1,0 +1,17 @@
+[project]
+name = "ai-for-stock-exchange"
+version = "0.1.0"
+description = "Webapp for generating insights about stock exchange."
+authors = [
+    {name = "JadesonBruno",email = "jadesonbruno.a@outlook.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
