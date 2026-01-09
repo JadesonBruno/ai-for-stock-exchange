@@ -3,6 +3,8 @@
 # App Deployment for Day Trade Analytics in real time using Ai Agents,
 # Groq, Deepseek and AWS for monetization.
 
+# Analytics Module
+
 # import third-party libraries
 import pandas as pd
 import plotly.express as px
