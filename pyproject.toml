@@ -7,10 +7,14 @@ authors = [
 ]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<4.0"
 dependencies = [
     "yfinance (>=1.0,<2.0)",
-    "plotly (>=6.5.0,<7.0.0)"
+    "plotly (>=6.5.0,<7.0.0)",
+    "agno (>=2.3.24,<3.0.0)",
+    "groq (>=1.0.0,<2.0.0)",
+    "ddgs (>=9.10.0,<10.0.0)",
+    "python-dotenv (>=1.2.1,<2.0.0)"
 ]
 
 
