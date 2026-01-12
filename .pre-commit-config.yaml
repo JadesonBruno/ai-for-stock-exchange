@@ -29,7 +29,9 @@ repos:
     rev: 7.3.0
     hooks:
       - id: flake8
-        args: ["--max-line-length=88"]
+        args:
+          - --max-line-length=88
+          - --per-file-ignores=app/app.py:E402
 
   - repo: https://github.com/PyCQA/bandit
     rev: 1.9.2
