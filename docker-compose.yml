@@ -1,0 +1,16 @@
+name: ai-for-stock-exchange
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ai-for-stock-exchange:dev
+    container_name: ai-for-stock-exchange
+    env_file:
+      - .env
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
