@@ -1,4 +1,8 @@
+# Use the official Python image as the base image
 FROM python:3.12.9-bookworm
+
+# Metadata labels
+LABEL maintainer="jadesonbruno.a@outlook.com"
 
 # Setting environment variables to optimize Python behavior
 ENV PYTHONUNBUFFERED=1 \
