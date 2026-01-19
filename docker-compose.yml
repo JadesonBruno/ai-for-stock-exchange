@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     image: ai-for-stock-exchange:dev
     container_name: ai-for-stock-exchange
     env_file:
