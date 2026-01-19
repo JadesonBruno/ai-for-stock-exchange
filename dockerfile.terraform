@@ -1,0 +1,46 @@
+# Use the official Ubuntu image as the base image
+FROM ubuntu:latest
+
+# Metadata labels
+LABEL maintainer="jadesonbruno.a@outlook.com"
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    sudo \
+    wget \
+    unzip \
+    curl \
+    openssh-client \
+    iproute2 \
+    iputils-ping \
+    build-essential \
+    ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set Terraform version
+ENV TERRAFORM_VERSION=1.13.0
+
+# Create the Terraform directory
+RUN mkdir -p /workspaces/downloads && \
+    cd /workspaces/downloads
+
+# Download and install Terraform
+RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+    unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+    mv terraform /usr/local/bin/ && \
+    rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+
+# Create AWS CLI folder and install AWS CLI
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    rm -rf awscliv2.zip && \
+    ./aws/install
+
+# Copy terraform project to ubuntu user home directory
+COPY ./terraform /workspaces/ai-for-stock-exchange-infra/terraform
+
+# Set the working directory
+WORKDIR /workspaces/ai-for-stock-exchange-infra/terraform
+
+# Set the default command to bash
+CMD ["bash"]
