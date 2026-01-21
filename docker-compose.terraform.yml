@@ -9,14 +9,5 @@ services:
     container_name: ai-for-stock-exchange-infra
     env_file:
       - .env
-    volumes:
-      - ./terraform:/workspaces/ai-for-stock-exchange-infra/terraform
-      - ./src:/workspaces/ai-for-stock-exchange-infra/src
-      - ./app:/workspaces/ai-for-stock-exchange-infra/app
-      - ./dockerfile:/workspaces/ai-for-stock-exchange-infra/dockerfile
-      - ./docker-compose.yml:/workspaces/ai-for-stock-exchange-infra/docker-compose.yml
-      - ./pyproject.toml:/workspaces/ai-for-stock-exchange-infra/pyproject.toml
-      - ./poetry.lock:/workspaces/ai-for-stock-exchange-infra/poetry.lock
-      - ./.env:/workspaces/ai-for-stock-exchange-infra/.env
     restart: unless-stopped
     command: ["tail", "-f", "/dev/null"]
